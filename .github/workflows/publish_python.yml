@@ -1,0 +1,29 @@
+name: Publish
+
+on:
+  workflow_call:
+    inputs:
+      repo:
+        required: false
+        default: pypi
+        type: string
+      python-version:
+        required: false
+        default: 3.9
+        type: number
+
+  publish:
+    name: Build and publish
+    needs: tag
+    env:
+      RELEASE_VERSION: ${{ needs.tag.outputs.tag }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: ${{ inputs.python-version }}
+      - run: pip install -r requirements.txt
+      - run: pip install -r requirements-publish.txt
+      - run: python -m build
+      - run: python -m twine upload --repository ${{ inputs.repo }} --skip-existing dist/* -u "__token__" -p ${{ secrets.py_pi_token }}
