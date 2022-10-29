@@ -11,6 +11,9 @@ on:
         required: false
         default: 3.9
         type: number
+    secrets:
+      py_pi_token:
+        required: true
 
   publish:
     name: Build and publish
