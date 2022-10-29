@@ -18,9 +18,9 @@ on:
       py_pi_token:
         required: true
 
+jobs:
   publish:
     name: Build and publish
-    needs: tag
     env:
       RELEASE_VERSION: ${{ inputs.release_version }}
     runs-on: ubuntu-latest
