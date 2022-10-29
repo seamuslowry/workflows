@@ -1,0 +1,23 @@
+name: Code Quality
+on:
+  workflow_call:
+    inputs:
+      python-version:
+        required: false
+        default: 3.9
+        type: number
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    name: PyLint
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: ${{ inputs.python-version }}
+      - run: pip install --upgrade pip
+      - run: pip install -r requirements.txt
+      - run: pip install -r requirements-lint.txt
+      - run: pylint $(git ls-files '*.py')
+      - run: pyright
