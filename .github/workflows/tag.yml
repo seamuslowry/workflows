@@ -6,6 +6,9 @@ on:
       tag:
         description: "The generated tag"
         value: ${{ jobs.tag.outputs.tag }}
+  push:
+    branches:
+      - main
 
 jobs:
   tag:
