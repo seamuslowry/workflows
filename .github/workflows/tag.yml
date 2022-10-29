@@ -7,7 +7,7 @@ on:
         description: "The generated tag"
         value: ${{ jobs.tag.outputs.tag }}
     secrets:
-      github_token:
+      gh_token:
         required: true
   push:
     branches:
@@ -28,6 +28,6 @@ jobs:
       - id: tag-version
         uses: anothrNick/github-tag-action@1.52.0
         env:
-          GITHUB_TOKEN: ${{ secrets.github_token || secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.gh_token || secrets.GITHUB_TOKEN }}
           WITH_V: false
           DEFAULT_BUMP: patch
