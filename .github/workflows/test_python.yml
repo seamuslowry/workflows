@@ -9,7 +9,7 @@ on:
       python-version:
         required: false
         default: 3.9
-        type: string
+        type: number
 
 jobs:
   test:
