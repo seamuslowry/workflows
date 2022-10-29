@@ -1,0 +1,27 @@
+name: Test and Check Coverage
+on:
+  workflow_call:
+    inputs:
+      min-coverage:
+        required: false
+        default: 100
+        type: number
+      python-version:
+        required: false
+        default: 3.9
+        type: number
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    name: PyTest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: ${{ inputs.python-version }}
+      - run: pip install --upgrade pip
+      - run: pip install -r requirements.txt
+      - run: pip install -r requirements-tests.txt
+      - run: coverage run --branch -m pytest tests
+      - run: coverage report --fail-under=${{ inputs.min-coverage }}
