@@ -91,7 +91,7 @@ None
 ### Assumptions
 
 - `requirements.txt` file at root level; specify packages needed by code to be linted
-- `requirements-tests.txt` file at root level; specify versions of pytest and coverage for testing and coverage
+- `requirements-test.txt` file at root level; specify versions of pytest and coverage for testing and coverage
 
 ```
 pytest==7.1.3
