@@ -19,6 +19,5 @@ jobs:
       - run: pip install --upgrade pip
       - run: pip install -r requirements.txt
       - run: pip install -r requirements-lint.txt
-      # shellcheck disable=SC2046
-      - run: pylint $(git ls-files '*.py')
+      - run: pylint $(git ls-files '*.py') # shellcheck disable=SC2046
       - run: pyright
