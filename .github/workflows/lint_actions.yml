@@ -12,4 +12,5 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           reporter: github-check
           filter_mode: nofilter
+          level: info
           fail_on_error: true
