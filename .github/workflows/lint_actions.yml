@@ -16,7 +16,7 @@ jobs:
         uses: reviewdog/action-actionlint@v1.33.1
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          reporter: github-check
+          reporter: github-pr-review
           filter_mode: nofilter
           fail_on_error: true
           level: info
