@@ -16,6 +16,4 @@ jobs:
         uses: reviewdog/action-actionlint@v1
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          workdir: ".github/workflows"
-        # with:
-        #   reporter: github-pr-review
+          reporter: github-pr-review
