@@ -6,7 +6,7 @@ on:
 
 jobs:
   lint:
-    uses: seamuslowry/workflows/.github/workflows/lint_actions.yml@feature/lint_on_pr_and_push
+    uses: seamuslowry/workflows/.github/workflows/lint_actions.yml@main
     with:
       reporter: local
     secrets:
