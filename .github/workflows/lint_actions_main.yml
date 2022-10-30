@@ -8,6 +8,6 @@ jobs:
   lint:
     uses: seamuslowry/workflows/.github/workflows/lint_actions.yml@main
     with:
-      reporter: local
+      reporter: github-check
     secrets:
       gh_token: ${{ secrets.GITHUB_TOKEN }}
