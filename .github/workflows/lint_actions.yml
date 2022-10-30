@@ -1,5 +1,11 @@
 name: Lint Actions
-on: push
+on:
+  pull_request:
+    types:
+      - opened
+      - edited
+      - reopened
+      - synchronize
 
 jobs:
   lint-actions:
@@ -12,5 +18,5 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           reporter: github-check
           filter_mode: nofilter
-          level: info
           fail_on_error: true
+          level: info
