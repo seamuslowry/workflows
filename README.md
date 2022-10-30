@@ -105,3 +105,31 @@ jobs:
   test:
     uses: seamuslowry/workflows/.github/workflows/test_python.yml@main
 ```
+
+## `tag.yml`
+
+### Inputs
+
+None
+
+### Secrets
+
+- `gh_token`: the GITHUB_TOKEN secret so it can create a tag
+
+### Outputs
+
+- `tag`: the semantic version string of the created tag
+
+### Assumptions
+
+None
+
+### Example
+
+```yaml
+jobs:
+  tag-new-version:
+    uses: seamuslowry/workflows/.github/workflows/tag.yml@main
+    secrets:
+      gh_token: ${{ secrets.GITHUB_TOKEN }}
+```
