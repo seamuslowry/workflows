@@ -2,21 +2,14 @@ name: Lint Actions
 on: push
 
 jobs:
-  lint-yaml:
-    runs-on: ubuntu-latest
-    name: Lint YAML
-    steps:
-      - uses: actions/checkout@v3
-      - uses: ibiqlik/action-yamllint@v3
-        with:
-          file_or_dir: .github/workflows/
-
   lint-actions:
     runs-on: ubuntu-latest
-    name: Lint Github Actions
     steps:
       - uses: actions/checkout@v3
-      - name: Check workflow files
-        uses: docker://rhysd/actionlint:latest
+      - name: Lint Github Actions
+        uses: reviewdog/action-actionlint@v1
+        env:
+          REVIEWDOG_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          args: -color
+          reporter: github-pr-review
