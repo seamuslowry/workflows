@@ -20,5 +20,5 @@ jobs:
       - run: pip install -r requirements.txt
       - run: pip install -r requirements-lint.txt
       - run: readarray -t py_files < <(git ls-files '*.py')
-      - run: pylint ${py_files[@]}"
+      - run: pylint "${py_files[@]}"
       - run: pyright
