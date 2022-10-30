@@ -1,11 +1,13 @@
 name: Lint Actions
 on:
-  pull_request:
-    types:
-      - opened
-      - edited
-      - reopened
-      - synchronize
+  workflow_call:
+    inputs:
+      reporter:
+        required: true
+        type: string
+    secrets:
+      gh_token:
+        required: true
 
 jobs:
   lint-actions:
@@ -15,7 +17,7 @@ jobs:
       - name: Lint Github Actions
         uses: reviewdog/action-actionlint@v1.33.1
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          reporter: github-pr-review
+          github_token: ${{ secrets.gh_token }}
+          reporter: ${{ inputs.reporter }}
           fail_on_error: true
           level: info
