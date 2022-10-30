@@ -1,11 +1,5 @@
 name: Lint Actions
-on:
-  pull_request:
-    types:
-      - opened
-      - edited
-      - reopened
-      - synchronize
+on: push
 
 jobs:
   lint-actions:
@@ -16,6 +10,6 @@ jobs:
         uses: reviewdog/action-actionlint@v1.33.1
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          reporter: github-pr-review
+          reporter: github-check
+          filter_mode: nofilter
           fail_on_error: true
-          introduce_on_error: true
