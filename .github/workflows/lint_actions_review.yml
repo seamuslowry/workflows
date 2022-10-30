@@ -1,0 +1,16 @@
+name: Lint Actions (Review)
+on:
+  pull_request:
+    types:
+      - opened
+      - edited
+      - reopened
+      - synchronize
+
+jobs:
+  lint:
+    uses: seamuslowry/workflows/.github/workflows/lint_actions.yml@main
+    with:
+      reporter: github-pr-review
+    secrets:
+      gh_token: ${{ secrets.GITHUB_TOKEN }}

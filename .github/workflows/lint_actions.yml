@@ -1,0 +1,23 @@
+name: Lint Actions
+on:
+  workflow_call:
+    inputs:
+      reporter:
+        required: true
+        type: string
+    secrets:
+      gh_token:
+        required: true
+
+jobs:
+  lint-actions:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Lint Github Actions
+        uses: reviewdog/action-actionlint@v1.33.1
+        with:
+          github_token: ${{ secrets.gh_token }}
+          reporter: ${{ inputs.reporter }}
+          fail_on_error: true
+          level: info

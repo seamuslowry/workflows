@@ -1,0 +1,13 @@
+name: Lint Actions (Review)
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  lint:
+    uses: seamuslowry/workflows/.github/workflows/lint_actions.yml@main
+    with:
+      reporter: local
+    secrets:
+      gh_token: ${{ secrets.GITHUB_TOKEN }}
