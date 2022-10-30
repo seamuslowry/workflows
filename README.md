@@ -72,3 +72,36 @@ jobs:
     secrets:
       py_pi_token: ${{ secrets.TEST_PYPI_API_TOKEN }}
 ```
+
+## `test_python.yml`
+
+### Inputs
+
+- `min-coverage`: default 100; minimum percentage of code must be coverage
+- `python-version`: default 3.9; the version of python to use
+
+### Secrets
+
+None
+
+### Outputs
+
+None
+
+### Assumptions
+
+- `requirements.txt` file at root level; specify packages needed by code to be linted
+- `requirements-tests.txt` file at root level; specify versions of pytest and coverage for testing and coverage
+
+```
+pytest==7.1.3
+coverage==6.5.0
+```
+
+### Example
+
+```yaml
+jobs:
+  test:
+    uses: seamuslowry/workflows/.github/workflows/test_python.yml@main
+```
