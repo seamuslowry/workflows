@@ -133,3 +133,35 @@ jobs:
     secrets:
       gh_token: ${{ secrets.GITHUB_TOKEN }}
 ```
+
+## `deploy_python_functions.yml`
+
+### Inputs
+
+- `name`: the name of the functions app to deploy to
+- `path`: default "."; the path to the project to deploy
+- `python-version`: default 3.9; the version of python to use
+
+### Secrets
+
+- `azure_publish_profile`: the publish profile from azure to use; will include the deployment slot, if applicable
+
+### Outputs
+
+None
+
+### Assumptions
+
+- `requirements.txt` file at root level; specify packages needed by code to be published
+
+### Example
+
+```yaml
+jobs:
+  deploy:
+    uses: seamuslowry/workflows/.github/workflows/deploy_python_functions.yml@main
+    with:
+      name: appname
+    secrets:
+      azure_publish_profile: ${{ secrets.AZURE_PROD_PUBLISH }}
+```
