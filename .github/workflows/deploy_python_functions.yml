@@ -1,4 +1,4 @@
-name: Deploy
+name: Deploy Python Functions
 
 on:
   workflow_call:
