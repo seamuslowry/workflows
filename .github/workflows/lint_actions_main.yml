@@ -1,4 +1,4 @@
-name: Lint Actions (Review)
+name: Lint Actions (Main)
 on:
   push:
     branches:
