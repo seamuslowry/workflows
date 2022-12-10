@@ -165,3 +165,33 @@ jobs:
     secrets:
       azure_publish_profile: ${{ secrets.AZURE_PROD_PUBLISH }}
 ```
+
+## `lint_actions.yml`
+
+### Inputs
+
+- `reporter`: passthrough to [reporter](https://github.com/reviewdog/reviewdog#reporters) of [reviewdog](https://github.com/reviewdog/reviewdog). Use `github-pr-review` when run on PR actions and want to leave a review. Use `github-check` when running on push/merge and don't want a PR review.
+
+### Secrets
+
+- `gh_token`: the GITHUB_TOKEN secret so it can report
+
+### Outputs
+
+None
+
+### Assumptions
+
+None
+
+### Example
+
+```yaml
+jobs:
+  lint:
+    uses: seamuslowry/workflows/.github/workflows/lint_actions.yml@main
+    with:
+      reporter: github-check
+    secrets:
+      gh_token: ${{ secrets.GITHUB_TOKEN }}
+```
