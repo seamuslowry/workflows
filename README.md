@@ -69,6 +69,7 @@ jobs:
     with:
       repo: testpypi
       release-version: 0.0.1
+      compose-file: docker-compose.yml
     secrets:
       py_pi_token: ${{ secrets.TEST_PYPI_API_TOKEN }}
 ```
@@ -79,6 +80,7 @@ jobs:
 
 - `min-coverage`: default 100; minimum percentage of code must be coverage
 - `python-version`: default 3.9; the version of python to use
+- `compose-file`: not required; expects a docker compose file; if passed, will build and up the file before tests and bring it down after
 
 ### Secrets
 
