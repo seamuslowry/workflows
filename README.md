@@ -69,6 +69,7 @@ jobs:
     with:
       repo: testpypi
       release-version: 0.0.1
+      compose-file: docker-compose.yml
     secrets:
       py_pi_token: ${{ secrets.TEST_PYPI_API_TOKEN }}
 ```
