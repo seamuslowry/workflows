@@ -79,6 +79,7 @@ jobs:
 
 - `min-coverage`: default 100; minimum percentage of code must be coverage
 - `python-version`: default 3.9; the version of python to use
+- `compose-file`: not required; expects a docker compose file; if passed, will build and up the file before tests and bring it down after
 
 ### Secrets
 
