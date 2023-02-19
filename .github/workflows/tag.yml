@@ -2,6 +2,12 @@ name: Tag
 
 on:
   workflow_call:
+    inputs:
+      with_v:
+        required: false
+        default: false
+        type: boolean
+
     outputs:
       tag:
         description: "The generated tag"
