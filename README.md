@@ -112,7 +112,7 @@ jobs:
 
 ### Inputs
 
-None
+- `with-v`: default false; whether to include v in tag version
 
 ### Secrets
 
