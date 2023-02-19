@@ -3,7 +3,7 @@ name: Tag
 on:
   workflow_call:
     inputs:
-      with_v:
+      with-v:
         required: false
         default: false
         type: boolean
@@ -34,5 +34,5 @@ jobs:
         uses: anothrNick/github-tag-action@1.57.0
         env:
           GITHUB_TOKEN: ${{ secrets.gh_token || secrets.GITHUB_TOKEN }}
-          WITH_V: false
+          WITH_V: ${{ inputs.with-v }}
           DEFAULT_BUMP: minor
