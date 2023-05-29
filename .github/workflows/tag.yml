@@ -36,3 +36,4 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.gh_token || secrets.GITHUB_TOKEN }}
           WITH_V: ${{ inputs.with-v }}
           DEFAULT_BUMP: minor
+          DRY_RUN: true
