@@ -3,6 +3,9 @@ name: Tag
 on:
   workflow_call:
     inputs:
+      custom-tag:
+        required: false
+        type: string
       with-v:
         required: false
         default: false
@@ -17,7 +20,8 @@ on:
         required: true
   push:
     branches:
-      - main
+      - chore/tag_improvements
+      # - main
 
 jobs:
   tag:
@@ -34,6 +38,7 @@ jobs:
         uses: anothrNick/github-tag-action@1.57.0
         env:
           GITHUB_TOKEN: ${{ secrets.gh_token || secrets.GITHUB_TOKEN }}
+          CUSTOM_TAG: ${{ inputs.custom-tag }}
           WITH_V: ${{ inputs.with-v }}
           DEFAULT_BUMP: minor
           DRY_RUN: true
