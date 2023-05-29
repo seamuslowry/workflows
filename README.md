@@ -113,6 +113,7 @@ jobs:
 ### Inputs
 
 - `with-v`: default false; whether to include v in tag version
+- `dry-run`: default false; generate the next tag value but do not create the tag
 - `custom-tag`: custom tag value to use; other tag related settings get ignored
 
 ### Secrets

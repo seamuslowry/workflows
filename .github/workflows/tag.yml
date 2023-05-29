@@ -6,6 +6,10 @@ on:
       custom-tag:
         required: false
         type: string
+      dry-run:
+        required: false
+        default: false
+        type: boolean
       with-v:
         required: false
         default: false
@@ -20,8 +24,7 @@ on:
         required: true
   push:
     branches:
-      - chore/tag_improvements
-      # - main
+      - main
 
 jobs:
   tag:
@@ -41,4 +44,4 @@ jobs:
           CUSTOM_TAG: ${{ inputs.custom-tag }}
           WITH_V: ${{ inputs.with-v }}
           DEFAULT_BUMP: minor
-          DRY_RUN: true
+          DRY_RUN: ${{ inputs.dry-run }}
