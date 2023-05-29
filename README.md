@@ -113,6 +113,7 @@ jobs:
 ### Inputs
 
 - `with-v`: default false; whether to include v in tag version
+- `custom-tag`: custom tag value to use; other tag related settings get ignored
 
 ### Secrets
 
