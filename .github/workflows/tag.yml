@@ -34,7 +34,7 @@ jobs:
       tag: ${{ steps.tag-version.outputs.tag }}
     steps:
       - id: checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           fetch-depth: "0"
       - id: tag-version

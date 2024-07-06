@@ -28,7 +28,7 @@ jobs:
       PYTHON_VERSION: ${{ inputs.python-version }}
     steps:
       - name: "Checkout GitHub Action"
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Setup Python ${{ env.PYTHON_VERSION }} Environment
         uses: actions/setup-python@v4
