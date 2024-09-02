@@ -24,7 +24,7 @@ jobs:
         with:
           python-version: ${{ inputs.python-version }}
       - if: (inputs.compose-file != '')
-        run: docker-compose -f "${{ inputs.compose-file }}" up -d --build
+        run: docker compose -f "${{ inputs.compose-file }}" up -d --build
       - run: pip install --upgrade pip
       - run: pip install -r requirements.txt
       - run: pip install -r requirements-test.txt
