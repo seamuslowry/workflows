@@ -22,14 +22,13 @@ jobs:
   publish:
     name: Build and publish
     env:
-      RELEASE_VERSION: ${{ inputs.release-version }}
+      SETUPTOOLS_SCM_PRETEND_VERSION: ${{ inputs.release-version }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: ${{ inputs.python-version }}
-      - run: pip install -r requirements.txt
-      - run: pip install -r requirements-publish.txt
+      - run: pip install '.[publish]'
       - run: python -m build
       - run: python -m twine upload --repository ${{ inputs.repo }} --skip-existing dist/* -u "__token__" -p ${{ secrets.py_pi_token }}
