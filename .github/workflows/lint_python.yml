@@ -17,7 +17,7 @@ jobs:
         with:
           python-version: ${{ inputs.python-version }}
       - run: pip install --upgrade pip
-      - run: pip install .[lint]
+      - run: pip install '.[lint]'
       - run: |
           readarray -t py_files < <(git ls-files '*.py')
           pylint "${py_files[@]}"

@@ -26,7 +26,7 @@ jobs:
       - if: (inputs.compose-file != '')
         run: docker compose -f "${{ inputs.compose-file }}" up -d --build
       - run: pip install --upgrade pip
-      - run: pip install .[test]
+      - run: pip install '.[test]'
       - run: coverage run --branch --source=. -m pytest tests
       - run: coverage report --fail-under=${{ inputs.min-coverage }}
       - if: always() && (inputs.compose-file != '')
