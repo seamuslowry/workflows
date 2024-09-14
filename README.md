@@ -18,13 +18,7 @@ None
 
 ### Assumptions
 
-- `requirements.txt` file at root level; specify packages needed by code to be linted
-- `requirements-lint.txt` file at root level; specify versions of pylint and pyright for linting. Example:
-
-```
-pylint==2.15.4
-pyright==1.1.276
-```
+- `pip install '.[lint]'` will install all necessary dependencies for linting your project
 
 ### Example
 
@@ -52,13 +46,7 @@ None
 
 ### Assumptions
 
-- `requirements.txt` file at root level; specify packages needed by code to be linted
-- `requirements-publish.txt` file at root level; specify versions of build and twine for publishing
-
-```
-build==0.8.0
-twine==4.0.1
-```
+- `pip install '.[publish]'` will install all necessary dependencies for publishing your project
 
 ### Example
 
@@ -92,13 +80,7 @@ None
 
 ### Assumptions
 
-- `requirements.txt` file at root level; specify packages needed by code to be linted
-- `requirements-test.txt` file at root level; specify versions of pytest and coverage for testing and coverage
-
-```
-pytest==7.1.3
-coverage==6.5.0
-```
+- `pip install '.[test]'` will install all necessary dependencies for testing your project
 
 ### Example
 
@@ -156,7 +138,7 @@ None
 
 ### Assumptions
 
-- `requirements.txt` file at root level; specify packages needed by code to be published
+None
 
 ### Example
 
