@@ -15,7 +15,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Lint Github Actions
-        uses: reviewdog/action-actionlint@v1.56.0
+        uses: reviewdog/action-actionlint@v1.57.0
         with:
           github_token: ${{ secrets.gh_token }}
           reporter: ${{ inputs.reporter }}
