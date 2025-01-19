@@ -8,8 +8,8 @@ on:
         type: number
       python-version:
         required: false
-        default: 3.9
-        type: number
+        default: '3.10'
+        type: string
       compose-file:
         required: false
         type: string
