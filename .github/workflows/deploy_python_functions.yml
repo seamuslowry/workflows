@@ -12,8 +12,8 @@ on:
         type: string
       python-version:
         required: false
-        default: 3.9
-        type: number
+        default: '3.11'
+        type: string
     secrets:
       azure_publish_profile:
         required: true
@@ -41,7 +41,7 @@ jobs:
           pushd './${{ env.APP_PACKAGE_PATH }}'
           python -m pip install --upgrade pip
           pip install . --target=".python_packages/lib/site-packages"
-          popd
+          pip freeze --path ".python_packages/lib/site-packages" --exclude "$(grep -oP '(?<=^name = ").*(?=")' pyproject.toml)" > requirements.txt
       - name: "Run Azure Functions Action"
         uses: Azure/functions-action@v1
         id: fa
