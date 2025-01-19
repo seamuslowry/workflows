@@ -4,8 +4,8 @@ on:
     inputs:
       python-version:
         required: false
-        default: 3.9
-        type: number
+        default: '3.10'
+        type: string
 
 jobs:
   lint:
