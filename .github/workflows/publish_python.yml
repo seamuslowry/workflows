@@ -14,6 +14,10 @@ on:
       release-version:
         required: true
         type: string
+      path:
+        required: false
+        default: "."
+        type: string
     secrets:
       py_pi_token:
         required: true

@@ -13,6 +13,10 @@ on:
       compose-file:
         required: false
         type: string
+      path:
+        required: false
+        default: "."
+        type: string
 
 jobs:
   test:
