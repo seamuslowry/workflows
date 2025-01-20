@@ -7,6 +7,7 @@ A collection of github workflows for reuse. Some of the workflow files assume th
 ### Inputs
 
 - `python-version`: default 3.11; the version of python to use
+- `path`: default "."; the path to the project to deploy
 
 ### Secrets
 
@@ -35,6 +36,7 @@ jobs:
 - `release-version`: required; the version to release
 - `repo`: default `pypi`; what repo to publish the release to
 - `python-version`: default 3.11; the version of python to use
+- `path`: default "."; the path to the project to deploy
 
 ### Secrets
 
@@ -69,6 +71,7 @@ jobs:
 - `min-coverage`: default 100; minimum percentage of code must be coverage
 - `python-version`: default 3.11; the version of python to use
 - `compose-file`: not required; expects a docker compose file; if passed, will build and up the file before tests and bring it down after
+- `path`: default "."; the path to the project to deploy
 
 ### Secrets
 
