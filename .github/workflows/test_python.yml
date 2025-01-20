@@ -27,6 +27,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: ${{ inputs.python-version }}
+      - run: cd ${{ inputs.path }}
       - if: (inputs.compose-file != '')
         run: docker compose -f "${{ inputs.compose-file }}" up -d --build
       - run: pip install --upgrade pip
