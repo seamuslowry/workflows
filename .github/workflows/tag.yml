@@ -22,6 +22,9 @@ on:
       old_tag:
         description: "The old tag (before the new tag was created)"
         value: ${{ jobs.tag.outputs.old_tag }}
+      new_tag:
+        description: "The new tag"
+        value: ${{ jobs.tag.outputs.new_tag }}
     secrets:
       gh_token:
         required: true
@@ -36,6 +39,7 @@ jobs:
     outputs:
       tag: ${{ steps.tag-version.outputs.tag }}
       old_tag: ${{ steps.tag-version.outputs.old_tag }}
+      new_tag: ${{ steps.tag-version.outputs.new_tag }}
     steps:
       - id: checkout
         uses: actions/checkout@v6
