@@ -19,6 +19,9 @@ on:
       tag:
         description: "The generated tag"
         value: ${{ jobs.tag.outputs.tag }}
+      old_tag:
+        description: "The old tag (before the new tag was created)"
+        value: ${{ jobs.tag.outputs.old_tag }}
     secrets:
       gh_token:
         required: true
@@ -32,6 +35,7 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       tag: ${{ steps.tag-version.outputs.tag }}
+      old_tag: ${{ steps.tag-version.outputs.old_tag }}
     steps:
       - id: checkout
         uses: actions/checkout@v6
