@@ -105,6 +105,7 @@ jobs:
 ### Outputs
 
 - `tag`: the semantic version string of the created tag
+- `old_tag`: the previous tag value before the new tag was created; will be empty if no new tag was created
 
 ### Assumptions
 
